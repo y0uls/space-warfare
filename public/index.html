@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<title>Space Warfare</title>
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<link rel="icon" type="image/png" href="pictures/favicon.png">
+</head>
+<body>
+  <h1 class="logo-title"></h1>
+  <br>
+  <!-- Conteneur principal pour canvas et tableau -->
+  <div id="top-container" style="display: flex; justify-content: center; align-items: center; gap: 50px; margin-bottom: 20px;">
+    <!-- Canvas + HUD -->
+    <div id="game-area" style="display: flex; flex-direction: column; align-items: center;">
+      <canvas id="game" width="600" height="480"></canvas>
+      <div id="hud" style="display: none; margin-top: 10px;">
+        <span id="score">Score: 0</span>
+        <span id="lives">Lives: 3</span>
+        <span id="level">Level: 1</span>
+      </div>
+    </div>
+
+    <!-- Tableau de scores centré verticalement par rapport au canvas -->
+    <div id="game-container" style="display: flex; flex-direction: column; justify-content: center; height: 480px;">
+      <div id="highscores" style="border: 2px solid #0f0; 
+              padding: 20px; 
+              min-width: 200px; 
+              text-align: center; 
+              display: flex; 
+              flex-direction: column; 
+              gap: 12px; 
+              background-color: rgba(0,0,0,0.5); 
+              font-family: 'Press Start 2P', monospace;
+              box-shadow: 0 0 10px #0f0, 0 0 20px #0f0;"></div>
+    </div>
+  </div>
+
+  <!-- Instructions et boutons en dessous -->
+  <div id="bottom-container" style="text-align: center;">
+    <p>
+      <span class="key">ENTER</span> to start - 
+      Arrows <span class="key">← & →</span> or <span class="key">Q & D</span> — 
+      <span class="key">Space</span> to shoot - 
+      <span class="key">Esc</span> to pause - 
+      <span class="key">R</span> to restart
+      <br>
+      <span class="key">F</span> or <span class="key">F11</span> Full screen - 
+      <span class="key">C</span> to Cosmetics - 
+      <span class="key">D</span> to Difficulty - 
+      <span class="key">M</span> to music - 
+      <span class="key">S</span> to sound
+    </p>
+    <br>
+    <div id="controls" style="display: flex; justify-content: center; flex-wrap: wrap; gap: 10px;">
+      <button id="toggle-sound">Sound: ON</button>
+      <button id="toggle-music">Music: ON</button>
+      <button id="difficulty-btn">Difficulty: Normal</button>
+      <button id="cosmeticsBtn" class="arcade-btn">Cosmetics</button>
+      <button id="scoreboard-btn">Scoreboard</button>
+      <button id="fullscreen">Fullscreen</button>
+      <button id="restart">Restart</button>
+      <button id="clear-scores" style="display: none;">Clear Scores</button>
+    </div>
+  </div>
+
+  <div id="cosmeticsModal" class="modal">
+    <div class="modal-content">
+      <h2>Choose your ship</h2>
+      <span id="closeCosmetics" class="modal-close">&times;</span>
+      <div id="cosmeticsList" class="cosmetics-grid"></div>
+    </div>
+  </div>
+
+  <script src="game.js"></script>
+</body>
+</html>
